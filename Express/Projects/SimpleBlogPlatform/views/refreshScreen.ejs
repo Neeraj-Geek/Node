@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Submission Success</title>
+    <script>
+        function redirectAfterDelay() {
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        }
+        window.onload = redirectAfterDelay;
+    </script>
+</head>
+
+<body>
+    <h3>
+        <%=message%>
+    </h3>
+    <p>You will be redirected to the login page shortly.</p>
+</body>
+
+</html>

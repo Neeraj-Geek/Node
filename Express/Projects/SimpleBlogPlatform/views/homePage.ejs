@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Blog Hill</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0;">
+
+    <!-- Header Section -->
+    <header
+        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <!-- Site Name -->
+        <h1 style="margin: 0; font-size: 24px; color: #333;">Blog Hill</h1>
+
+        <!-- User Info, Create Post, and Logout Button -->
+        <div style="display: flex; align-items: center;">
+            <p style="margin: 0 15px 0 0; color: #333; font-size: 18px;">Hello, <%= message %>
+            </p>
+            <a href="/protected/create_post" style="text-decoration: none; margin-right: 10px;">
+                <button
+                    style="padding: 8px 16px; background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Create
+                    Post</button>
+            </a>
+            <form action="/logout" method="POST" style="margin: 0;">
+                <button type="submit"
+                    style="padding: 8px 16px; background-color: #dc3545; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 70px);">
+        <div
+            style="text-align: center; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <h2 style="color: #333;">Welcome to Blog Hill</h2>
+            <p style="color: #555;">We are glad to have you here! Explore and enjoy reading amazing blogs.</p>
+        </div>
+    </main>
+
+</body>
+
+</html>

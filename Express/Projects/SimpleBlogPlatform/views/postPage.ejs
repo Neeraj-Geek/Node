@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post View - Blog Hill</title>
+</head>
+
+<body
+    style="font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <!-- Post View Section -->
+    <div
+        style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 600px;">
+        <!-- Post Title -->
+        <h1 style="color: #333;">Post Title</h1>
+
+        <!-- Post Author -->
+        <p style="color: #555;">by <strong>Author Name</strong></p>
+
+        <!-- Post Content -->
+        <div style="margin-top: 20px; color: #555; line-height: 1.6;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel urna felis. Aenean sit amet ex ac
+                velit fermentum fermentum. Aliquam erat volutpat.</p>
+            <p>Cras dapibus, justo sit amet vehicula viverra, lacus est fermentum nunc, et vehicula leo mi ac nisi. In
+                hac habitasse platea dictumst. Curabitur imperdiet ligula at lacinia pretium.</p>
+        </div>
+
+        <!-- Edit and Delete Buttons -->
+        <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+            <a href="/edit-post" style="text-decoration: none;">
+                <button
+                    style="padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Edit</button>
+            </a>
+            <form action="/delete-post" method="POST" style="margin: 0;">
+                <button type="submit"
+                    style="padding: 10px 20px; background-color: #dc3545; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
