@@ -1,0 +1,18 @@
+ 
+ -- delete note based on title
+ node index.js delete --title=2
+
+-- update the exiting note based on title
+  node index.js update --title=4 --description="This is update"
+
+
+-- add new note 
+  node index.js add --title=4 --description="Add New note"
+
+
+-- list all notes
+  node index.js list
+
+
+-- read a particular note 
+  node index.js read --title=4
