@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "The Power of JavaScript",
+    "author": "John Doe",
+    "content": "JavaScript is a versatile language used for both client-side and server-side programming. In this post, we explore its features and capabilities.",
+    "date": "2025-01-17"
+  },
+  {
+    "id": 2,
+    "title": "10 Tips for Learning React",
+    "author": "Jane Smith",
+    "content": "React is one of the most popular libraries for building user interfaces. Here are 10 tips to help you get started.",
+    "date": "2025-01-10"
+  },
+  {
+    "id": 3,
+    "title": "Understanding Node.js",
+    "author": "Sunny Kumar",
+    "content": "Node.js allows developers to use JavaScript on the server side. Learn about its key features and how it works.",
+    "date": "2025-01-05"
+  },
+  {
+    "id": 4,
+    "title": "CSS Grid vs Flexbox",
+    "author": "Emily Davis",
+    "content": "Both CSS Grid and Flexbox are powerful layout tools. This post discusses their differences and when to use each.",
+    "date": "2024-12-25"
+  },
+  {
+    "id": 5,
+    "title": "Why Learn Programming?",
+    "author": "Michael Brown",
+    "content": "Programming is a valuable skill in today's tech-driven world. Discover the benefits of learning to code.",
+    "date": "2024-12-15"
+  }
+]
