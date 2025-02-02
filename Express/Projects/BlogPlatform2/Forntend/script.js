@@ -43,6 +43,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log("No posts available or error fetching data.");
     }
   }
+  const editPost = async (postId) => {
+    const deleteBtn = document.getElementById("edit-post-form");
+
+    const singlePostData = await fetchUrl(
+      `http://localhost:3000/getpost/${postId}`
+    );
+    if (singlePostData) {
+      console.log(singlePostData);
+      const form_post = ` <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="Sample Title" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="Sample Author" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" required>Sample Content</textarea>
+
+            <button type="submit">Update Post</button>`;
+    } else {
+      console.log("No post found");
+    }
+  };
+
   //GEt Single Post
   const getSinglePost = async (idx) => {
     const singlePostData = await fetchUrl(
@@ -53,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <p id="post-date">Posted on: <span>Date: ${singlePostData.date}</span></p>
             <div id="post-content">${singlePostData.content}</div>
             <div class="post-actions">
-                <a href="edit.html">Edit</a>
+                <a href="edit.html"id="edit_post">Edit</a>
                 <button id="delete-post">Delete</button>
             </div>`;
 
@@ -67,6 +90,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "./index.html";
         alert("Data deleted successfully!");
       }
+    });
+    const editBtn = document.getElementById("edit_post");
+    console.log(editBtn);
+    editBtn.addEventListener("click", (idx) => {
+      editPost(idx);
     });
   };
 
