@@ -44,8 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
   const editPost = async (postId) => {
-    const deleteBtn = document.getElementById("edit-post-form");
-
+    window.location.href = "./edit.html";
+    const editForm = document.getElementById("edit-post-form");
+    console.log(editForm);
     const singlePostData = await fetchUrl(
       `http://localhost:3000/getpost/${postId}`
     );
@@ -76,7 +77,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             <p id="post-date">Posted on: <span>Date: ${singlePostData.date}</span></p>
             <div id="post-content">${singlePostData.content}</div>
             <div class="post-actions">
-                <a href="edit.html"id="edit_post">Edit</a>
+            <button id="edit_post">Edit</button>
+                
                 <button id="delete-post">Delete</button>
             </div>`;
 
@@ -92,9 +94,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
     const editBtn = document.getElementById("edit_post");
-    console.log(editBtn);
     editBtn.addEventListener("click", (idx) => {
-      editPost(idx);
+      window.location.href = "./edit.html";
+      const editForm = document.getElementById("edit-post-form");
+      console.log(editForm);
+      const form_post = ` <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value=${singlePostData.title} required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value=${singlePostData.author} required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" required>${singlePostData.content}</textarea>
+
+            <button type="submit">Update Post</button>`;
+      editForm.innerHTML = form_post;
     });
   };
 
