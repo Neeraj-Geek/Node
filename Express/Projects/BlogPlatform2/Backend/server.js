@@ -63,4 +63,25 @@ app.post("/submit-post", (req, res) => {
     res.status(404).json({ message: "Post not found" });
   }
 });
+
+app.post("/create-post", (req, res) => {
+  const { id, title, author, content } = req.body;
+
+  console.log(title, author, content);
+  if (!title || !author || !content) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+  let date = new Date();
+  const formattedDate = date.toLocaleDateString();
+  let newPost = { id, title, author, content, formattedDate };
+  const posts = JSON.parse(fs.readFileSync("./Backend/posts.json"));
+  if (posts) {
+    posts.push(newPost);
+
+    writeFileSync("./Backend/posts.json", JSON.stringify(posts));
+    res.status(200).json("Updated");
+  } else {
+    res.status(404).json({ message: "Post not found" });
+  }
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
