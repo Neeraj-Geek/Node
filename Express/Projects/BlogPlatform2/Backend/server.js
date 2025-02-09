@@ -1,7 +1,6 @@
 import express from "express";
 import fs, { writeFileSync } from "fs";
 import cors from "cors";
-import { timeLog } from "console";
 
 const app = express();
 const port = 3000;
@@ -84,4 +83,56 @@ app.post("/create-post", (req, res) => {
     res.status(404).json({ message: "Post not found" });
   }
 });
+
+//CREATE a new USER
+app.post("/signup", (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+  const userId = Date.now();
+  const user = { id: userId, name, email, password };
+  const users = JSON.parse(fs.readFileSync("./Backend/user.json"));
+  if (users) {
+    users.push(user);
+    writeFileSync("./Backend/user.json", JSON.stringify(users));
+    res.status(200).json("User created");
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
+  try {
+    const users = JSON.parse(fs.readFileSync("./Backend/user.json"));
+
+    if (users) {
+      // Find the user by email
+      const user = Object.values(users).find((value) => value.email === email);
+
+      if (user) {
+        // Validate the password
+        if (user.password === password) {
+          return res.status(200).json("Logged in");
+        } else {
+          return res.status(401).json({ message: "Invalid password" });
+        }
+      } else {
+        return res.status(401).json({ message: "Invalid email" });
+      }
+    } else {
+      return res.status(404).json({ message: "No users found" });
+    }
+  } catch (err) {
+    console.error("Error reading user data:", err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

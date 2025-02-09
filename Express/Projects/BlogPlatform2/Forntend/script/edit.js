@@ -45,10 +45,15 @@ document.addEventListener("DOMContentLoaded", async () => {
           headers: { "Content-Type": "application/json" },
         })
           .then((response) => response.json())
-          .then((data) => console.log("Success:", data))
-          .catch((error) => console.error("Error:", error));
-        window.location.href = "./index.html";
-        alert("Post updated successfully!");
+          .then((data) => {
+            console.log("Success:", data);
+            alert("Post submitted successfully!");
+            window.location.href = "./index.html";
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to submit the post.");
+          });
       });
     }
   }
